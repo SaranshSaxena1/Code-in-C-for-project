@@ -1,0 +1,24 @@
+#include <iostream>
+
+// Function to check if a number is a power of two
+int CheckPowerOfTwo(int n) {
+    // Check if n is positive and a power of two
+    if (n > 0 && (n & (n - 1)) == 0) {
+        return __builtin_ctz(n); // Returns the position of the first set bit (which is the power of two)
+    } else {
+        return -1; // Return -1 if n is not a power of two
+    }
+}
+
+int main() {
+    int n = 64;
+    int result = CheckPowerOfTwo(n);
+    
+    if (result != -1) {
+        std::cout << "Power of 2: " << result << std::endl;
+    } else {
+        std::cout << "Not a power of 2 or negative number." << std::endl;
+    }
+    
+    return 0;
+}
